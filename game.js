@@ -1,3 +1,4 @@
+
 let vez = "X";
 
 //let caixa = document.querySelector(".caixa");
