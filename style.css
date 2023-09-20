@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(187, 126, 245);
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+#jogo{
+    background-color: whitesmoke;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 7%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.caixa{
+    width: 64px;
+    height: 64px;
+    border: 1px solid black;
+    font-size: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#caixa1{
+    border-top: none ;
+    border-left: none;
+}
+
+#caixa2{
+    border-top: none ;
+}
+
+#caixa3{
+    border-top: none ;
+    border-right: none;
+}
+
+#caixa4{
+    border-left: none;
+}
+
+#caixa6{
+    border-right: none;
+}
+
+#caixa7{
+    border-bottom: none ;
+    border-left: none;
+}
+
+#caixa8{
+    border-bottom: none ;
+}
+
+#caixa9{
+    border-bottom: none ;
+    border-right: none;
+}
