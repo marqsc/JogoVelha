@@ -1,10 +1,17 @@
 *{
+    box-sizing: border-box; /*Margin e pading não influenciam na influenciar no elementos*/
     margin: 0;
     padding: 0;
 }
 
 body{
-    background-color: #76B5FF;
+    width: 100vw;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgb(168, 131, 255) 0%, 
+        rgb(112, 50, 255) 100%
+    );
 }
 
 #titulo{
@@ -17,7 +24,7 @@ body{
     margin-top: 2%;
     margin-bottom: 2%;
     border-radius: 15px;
-    background: #3F80FF;
+    background: #6d1fff;
 }
 
 h1{
@@ -31,61 +38,82 @@ h1{
     
 }
 #jogo{
-    background-color: whitesmoke;
-    margin-right: auto;
-    margin-left: auto;
-    width: 390px;
-    height: 390px;
-    border-radius: 7%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: grid;
     justify-content: center;
-    border: 1px solid black;
-    box-shadow: 0px 25px 35px 0px rgba(0, 0, 0, 0.50);
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+
+    grid-template-columns: repeat(3, auto); 
 }
 
 .caixa{
-    width: 128px;
-    height: 128px;
-    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(255, 255, 255);
     font-size: 90px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#caixa1{
-    border-top: none ;
+.caixa:nth-child(1),
+.caixa:nth-child(2),
+.caixa:nth-child(3){
+    border-top: none;
+}
+
+.caixa:nth-child(1),
+.caixa:nth-child(4),
+.caixa:nth-child(7){
     border-left: none;
 }
 
-#caixa2{
-    border-top: none ;
-}
-
-#caixa3{
-    border-top: none ;
+.caixa:nth-child(3),
+.caixa:nth-child(6),
+.caixa:nth-child(9){
     border-right: none;
 }
 
-#caixa4{
-    border-left: none;
+.caixa:nth-child(7),
+.caixa:nth-child(8),
+.caixa:nth-child(9){
+    border-bottom: none;
 }
 
-#caixa6{
-    border-right: none;
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-direction: column; /*Itens se posicionam um a cima do outro*/
 }
 
-#caixa7{
-    border-bottom: none ;
-    border-left: none;
+.winning-message button{
+    font-size: 2.5rem;
+    background-color: rgb(139, 147, 255);
+    padding: 10px 15px;
+    border-radius: 5%;
+    border: none;
+    cursor: pointer;
+    margin-top: 16px;
+    color: white;
 }
 
-#caixa8{
-    border-bottom: none ;
+.winning-message button:hover{
+    background-color: white;
+    color: rgb(139, 147, 255);
 }
 
-#caixa9{
-    border-bottom: none ;
-    border-right: none;
+.winning-message-text{
+    color: white;
+    font-size: 5rem
 }
