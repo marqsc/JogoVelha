@@ -1,5 +1,3 @@
-
-let vez = "X";
 let currentPlayer = "X";
 
 const winningConbinations = [
@@ -16,37 +14,9 @@ const winningConbinations = [
 //let caixa = document.querySelector(".caixa");
 const caixaElements = document.querySelectorAll(".caixa");
 
-// let caixa1 = document.querySelector("#caixa1");
-// let caixa2 = document.querySelector("#caixa2");
-// let caixa3 = document.querySelector("#caixa3");
-// let caixa4 = document.querySelector("#caixa4");
-// let caixa5 = document.querySelector("#caixa5");
-// let caixa6 = document.querySelector("#caixa6");
-// let caixa7 = document.querySelector("#caixa7");
-// let caixa8 = document.querySelector("#caixa8");
-// let caixa9 = document.querySelector("#caixa9");
-
 //Adicionando um Evento
 for (const caixa of caixaElements) {
     caixa.addEventListener("click", acaoclick);
-}
-
-// caixa1.addEventListener("click", acaoclick);
-// caixa2.addEventListener("click", acaoclick);
-// caixa3.addEventListener("click", acaoclick);
-// caixa4.addEventListener("click", acaoclick);
-// caixa5.addEventListener("click", acaoclick);
-// caixa6.addEventListener("click", acaoclick);
-// caixa7.addEventListener("click", acaoclick);
-// caixa8.addEventListener("click", acaoclick);
-// caixa9.addEventListener("click", acaoclick);
-
-const checkForWin = () => {
-    return winningConbinations.some((combination) => {
-        return combination.every((index) => {
-            return caixaElements[index].classList.contains(currentPlayer); // Corrigido aqui
-        });
-    });
 }
 
 function acaoclick(evento)
@@ -54,18 +24,77 @@ function acaoclick(evento)
     // recupero o elemewnto que foi clicado naquele momento
     let clicado = evento.target //target = Alvo
 
-    if (vez == "X") {
+    if (currentPlayer == "X") {
         clicado.innerHTML = "X";
-        vez = "O";
+        currentPlayer = "O";
     } else {
         clicado.innerHTML = "O";
-        vez = "X";
+        currentPlayer = "X";
     }
 
     clicado.removeEventListener("click", acaoclick);
 
-    const isWin = checkForWin();
-    if (isWin) {
-        console.log("Winner");
+    acaoVerificarVencedor();
+
+}
+
+function acaoVerificarVencedor(){
+    let valor1 = caixa1.innerHTML;
+    let valor2 = caixa2.innerHTML;
+    let valor3 = caixa3.innerHTML;
+    let valor4 = caixa4.innerHTML;
+    let valor5 = caixa5.innerHTML;
+    let valor6 = caixa6.innerHTML;
+    let valor7 = caixa7.innerHTML;
+    let valor8 = caixa8.innerHTML;
+    let valor9 = caixa9.innerHTML;
+    let jogo = document.querySelector("#jogo");
+
+    if (valor1 == valor2 && valor1 == valor3 & valor1 !="") {
+        let linha = document.createElement("div");
+        linha.classList.add("linha-hor-1");
+        jogo.appendChild(linha);
+    }
+    
+    if (valor4 == valor5 && valor4 == valor6 & valor4 !="") {
+        let linha = document.createElement("div");
+        linha.classList.add("linha-hor-2");
+        jogo.appendChild(linha);
+    }
+
+    if (valor7 == valor8 && valor7 == valor9 & valor7 !="") {
+        let linha = document.createElement("div");
+        linha.classList.add("linha-hor-3");
+        jogo.appendChild(linha);
+    }
+
+    if (valor1 == valor4 && valor1 == valor7 & valor1 !="") {
+        let linha = document.createElement("div");
+        linha.classList.add("linha-ver-1");
+        jogo.appendChild(linha);
+    }
+
+    if (valor2 == valor5 && valor2 == valor8 & valor2 !="") {
+        let linha = document.createElement("div");
+        linha.classList.add("linha-ver-2");
+        jogo.appendChild(linha);
+    }
+
+    if (valor3 == valor6 && valor3 == valor9 & valor3 !="") {
+        let linha = document.createElement("div");
+        linha.classList.add("linha-ver-3");
+        jogo.appendChild(linha);
+    }
+
+    if (valor1 == valor5 && valor1 == valor9 & valor1 !="") {
+        let linha = document.createElement("div");
+        linha.classList.add("linha-diag-1");
+        jogo.appendChild(linha);
+    }
+
+    if (valor3 == valor5 && valor3 == valor7 & valor3 !="") {
+        let linha = document.createElement("div");
+        linha.classList.add("linha-diag-2");
+        jogo.appendChild(linha);
     }
 }
